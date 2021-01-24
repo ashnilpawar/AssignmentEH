@@ -1,0 +1,41 @@
+<form class="form-horizontal" [formGroup]="LoginForm">
+    <div class="container login-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <div class="col">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="page-header" align="center">
+                                <h1>Login To EHL Assignment</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field>
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Username" formControlName="email_id" appearance="fill">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Password" type="password" formControlName="password">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div style="margin-top:16px;" align="center">
+                        <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div align="center">An Assignment for EHL</div>
+
+    </div>
+
+</form>

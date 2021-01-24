@@ -1,0 +1,10 @@
+.login-wrapper{
+    margin: 5em auto;
+    width: 40%;
+}
+
+@media only screen and (max-width: 800px) {
+    .login-wrapper {
+        width: 100%;
+    }
+  }

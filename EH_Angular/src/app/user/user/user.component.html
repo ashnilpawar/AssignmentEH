@@ -1,0 +1,61 @@
+<form class="form-horizontal" [formGroup]="UserForm">
+    <div class="container">
+        <div class="page-header" align=center>
+            <h1>{{action}} User</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" formControlName="firstName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Mobile No</mat-label>
+                    <input matInput placeholder="Mobile No" formControlName="mobileNo">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">            
+            <div class="col-md-6">
+                <mat-form-field>
+                    <mat-label>Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <div style="margin-top:16px;">
+                    <mat-radio-group formControlName="isActive">
+                        <mat-radio-button value="1" class="col-md-3">Active</mat-radio-button>
+                        <mat-radio-button value="0" class="col-md-3">Inactive</mat-radio-button>
+                    </mat-radio-group>
+                </div>                
+            </div>
+        </div>
+
+        <div class="" align=center style="margin-top:16px;">
+            <button mat-raised-button color="primary" (click)="onSubmit()" *ngIf="action == 'Add'">Save</button>
+            <button mat-raised-button color="primary" (click)="onUpdate()" *ngIf="action == 'Update'">Update</button>
+            <button mat-raised-button color="primary" (click)="onCancel()" style="margin-left:16px">Cancel</button>
+        </div>
+
+
+    </div>
+</form>

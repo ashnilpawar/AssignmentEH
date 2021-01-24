@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="page-header" align=center>
+    <h1>List Of Users</h1>
+  </div>
+  <div class="row container">
+    <div class="col-md-6">
+      <div class="row container">
+        <button mat-raised-button color="primary" (click)="AddUser()">Add New User</button>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="row container">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrollmenu">
+    <table mat-table [dataSource]="dataSource" matSort class="table-hover">
+
+      <ng-container matColumnDef="id">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Email Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="mobileNo">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Mobile No </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobileNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateOfBirth">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Date Of Birth </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="isActive">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let element" [ngStyle]="{'color': element.isActive == 1 ? 'green':'red'}"> {{element.isActive | status }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th class="bg-primary white" mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button (click)="onEdit(element.id)" matTooltip="Edit" [disabled]="element.isActive == 0">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-button (click)="onDelete(element.id)" matTooltip="Delete" [disabled]="element.isActive == 0">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
