@@ -1,1 +1,17 @@
+Software Required : 
+  1. mysql-installer-community-8.0.13.0
+  2. Visual studio 2017 or higher.
+  3. mysql-installer-community-8.0.13.0
 
+Step 1 : Download EH_Angular and EH_Assign.Api project to your local machine.
+Step 2 : Install above mentioned softwares and run the script EH_DB.sql inside mysql query editor, this will create required tables with some prepoulated sample data.
+
+Step 3 : Open EH_Assign.Api folder and open EH_Assign.Api.sln in visual studio. Clean and build solution and run the webapi project.
+
+Note: If your mysql username and password is different from that in appsettings.json change defaultconnection  as per you username and password.
+
+Step 4 : open command prompt and navigate to folder EH_Angular and run command npm install from root folder where you find package.json.
+
+Step 5 : Once all packages are installed successfully run command ng build and then ng serve.
+
+Step 6 : Enter user name as "user" and password as "user" this will log you into the system.
